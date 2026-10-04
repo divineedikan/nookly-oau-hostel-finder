@@ -1,0 +1,466 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1352 >>
+stream
+BT
+/F1 11 Tf
+50 780 Td
+14 TL
+(Nookly Presentation Slides) Tj
+T*
+() Tj
+T*
+(Slide 1: Title) Tj
+T*
+() Tj
+T*
+(Nookly: OAU Student Housing Finder SWEP 200 Group Project Student) Tj
+T*
+(housing discovery around Obafemi Awolowo University, Ile-Ife) Tj
+T*
+() Tj
+T*
+(Slide 2: Problem) Tj
+T*
+() Tj
+T*
+(- Students struggle to compare hostel information.) Tj
+T*
+() Tj
+T*
+(- Details are scattered across word-of-mouth, websites, map listings) Tj
+T*
+(and reviews.) Tj
+T*
+() Tj
+T*
+(- Rent period, distance, facilities and availability are often) Tj
+T*
+(unclear.) Tj
+T*
+() Tj
+T*
+(- Students need a faster way to make an informed first comparison.) Tj
+T*
+() Tj
+T*
+(Slide 3: Aim And Objectives) Tj
+T*
+() Tj
+T*
+(Aim: Build a functional web-based hostel finder for OAU students.) Tj
+T*
+() Tj
+T*
+(Objectives:) Tj
+T*
+() Tj
+T*
+(- Search and filter hostels.) Tj
+T*
+() Tj
+T*
+(- Compare on-campus and off-campus options.) Tj
+T*
+() Tj
+T*
+(- Show route context on a map.) Tj
+T*
+() Tj
+T*
+(- Display verified hostel details.) Tj
+T*
+() Tj
+T*
+(- Allow users to report incorrect information.) Tj
+T*
+() Tj
+T*
+(Slide 4: Target Users) Tj
+T*
+() Tj
+T*
+(- New OAU students.) Tj
+T*
+() Tj
+T*
+(- Returning students looking for accommodation.) Tj
+T*
+() Tj
+T*
+(- Students comparing rent, room types and distance.) Tj
+T*
+() Tj
+T*
+(- Project team members maintaining hostel data.) Tj
+T*
+() Tj
+T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1128 >>
+stream
+BT
+/F1 11 Tf
+50 780 Td
+14 TL
+(Slide 5: Technologies Used) Tj
+T*
+() Tj
+T*
+(- HTML for structure.) Tj
+T*
+() Tj
+T*
+(- CSS for styling and responsive layout.) Tj
+T*
+() Tj
+T*
+(- JavaScript for interactivity.) Tj
+T*
+() Tj
+T*
+(- Leaflet and OpenStreetMap for map display.) Tj
+T*
+() Tj
+T*
+(- OSRM for route estimates.) Tj
+T*
+() Tj
+T*
+(- JSON for hostel data.) Tj
+T*
+() Tj
+T*
+(- Formspree for report delivery.) Tj
+T*
+() Tj
+T*
+(- Python and Node.js for tests/data support.) Tj
+T*
+() Tj
+T*
+(Slide 6: Major Features) Tj
+T*
+() Tj
+T*
+(- Verified hostel cards.) Tj
+T*
+() Tj
+T*
+(- Search and filters.) Tj
+T*
+() Tj
+T*
+(- Mobile-friendly navigation.) Tj
+T*
+() Tj
+T*
+(- Interactive map.) Tj
+T*
+() Tj
+T*
+(- Road route highlighting.) Tj
+T*
+() Tj
+T*
+(- Budget calculator.) Tj
+T*
+() Tj
+T*
+(- Hostel comparison.) Tj
+T*
+() Tj
+T*
+(- Report form.) Tj
+T*
+() Tj
+T*
+(Slide 7: System Architecture) Tj
+T*
+() Tj
+T*
+(flowchart LR) Tj
+T*
+(  JSON[Hostel JSON Data] --> APP[Frontend App]) Tj
+T*
+(  APP --> MAP[Leaflet Map]) Tj
+T*
+(  MAP --> OSM[OpenStreetMap Tiles]) Tj
+T*
+(  APP --> ROUTE[OSRM Routes]) Tj
+T*
+(  APP --> REPORT[Formspree Reports]) Tj
+T*
+() Tj
+T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 1346 >>
+stream
+BT
+/F1 11 Tf
+50 780 Td
+14 TL
+(Slide 8: Data And Verification) Tj
+T*
+() Tj
+T*
+(- 48 hostel records.) Tj
+T*
+() Tj
+T*
+(- Visible verification date: 03/10/2026.) Tj
+T*
+() Tj
+T*
+(- On-campus details from personal enquiries and official context.) Tj
+T*
+() Tj
+T*
+(- Off-campus details from web research and public map/listing) Tj
+T*
+(information.) Tj
+T*
+() Tj
+T*
+(- Unknown values are not invented.) Tj
+T*
+() Tj
+T*
+(Slide 9: Security And Usability) Tj
+T*
+() Tj
+T*
+(- Dynamic text is escaped before display.) Tj
+T*
+() Tj
+T*
+(- No secret map API key is exposed.) Tj
+T*
+() Tj
+T*
+(- Form controls have labels.) Tj
+T*
+() Tj
+T*
+(- Mobile layout is optimized.) Tj
+T*
+() Tj
+T*
+(- Report form sends corrections to the project team.) Tj
+T*
+() Tj
+T*
+(- OpenStreetMap attribution is preserved.) Tj
+T*
+() Tj
+T*
+(Slide 10: Testing) Tj
+T*
+() Tj
+T*
+(Tests used:) Tj
+T*
+() Tj
+T*
+(node --check app.js) Tj
+T*
+(node tests/test_app.cjs) Tj
+T*
+(python -m pytest tests -q -p no:cacheprovider) Tj
+T*
+() Tj
+T*
+(Also tested in browser responsive mode and with live Formspree report) Tj
+T*
+(submission.) Tj
+T*
+() Tj
+T*
+(Slide 11: Challenges And Solutions) Tj
+T*
+() Tj
+T*
+(- Google Maps API cost: used Leaflet/OpenStreetMap/OSRM.) Tj
+T*
+() Tj
+T*
+(- Mobile scrolling issue: redesigned with mobile views.) Tj
+T*
+() Tj
+T*
+(- Duplicate address display: cleaned location text.) Tj
+T*
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 979 >>
+stream
+BT
+/F1 11 Tf
+50 780 Td
+14 TL
+() Tj
+T*
+(- Changing hostel data: added verification date and report form.) Tj
+T*
+() Tj
+T*
+(- Missing details: unknown values remain hidden or unavailable.) Tj
+T*
+() Tj
+T*
+(Slide 12: Limitations And Future Work) Tj
+T*
+() Tj
+T*
+(Limitations:) Tj
+T*
+() Tj
+T*
+(- No live traffic.) Tj
+T*
+() Tj
+T*
+(- No booking/payment.) Tj
+T*
+() Tj
+T*
+(- Availability can change.) Tj
+T*
+() Tj
+T*
+(Future work:) Tj
+T*
+() Tj
+T*
+(- Admin dashboard.) Tj
+T*
+() Tj
+T*
+(- More field verification.) Tj
+T*
+() Tj
+T*
+(- Photo gallery.) Tj
+T*
+() Tj
+T*
+(- PWA/offline support.) Tj
+T*
+() Tj
+T*
+(- Moderated backend.) Tj
+T*
+() Tj
+T*
+(Slide 13: Live Demo Flow) Tj
+T*
+() Tj
+T*
+(- Open the site.) Tj
+T*
+() Tj
+T*
+(- Search for a hostel.) Tj
+T*
+() Tj
+T*
+(- Apply filters.) Tj
+T*
+() Tj
+T*
+(- Open the map route.) Tj
+T*
+() Tj
+T*
+(- Compare hostels.) Tj
+T*
+() Tj
+T*
+(- Use budget calculator.) Tj
+T*
+() Tj
+T*
+(- Send a correction report.) Tj
+T*
+() Tj
+T*
+(Slide 14: Conclusion) Tj
+T*
+() Tj
+T*
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 13 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 303 >>
+stream
+BT
+/F1 11 Tf
+50 780 Td
+14 TL
+(Nookly is a functional web-based solution, not just a collection of) Tj
+T*
+(pages. It applies SWEP concepts in web technology, networking, data) Tj
+T*
+(handling, product design and security awareness to solve a real) Tj
+T*
+(student accommodation problem.) Tj
+T*
+() Tj
+T*
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000140 00000 n 
+0000000267 00000 n 
+0000001671 00000 n 
+0000001798 00000 n 
+0000002978 00000 n 
+0000003105 00000 n 
+0000004503 00000 n 
+0000004631 00000 n 
+0000005662 00000 n 
+0000005791 00000 n 
+0000006146 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+6217
+%%EOF

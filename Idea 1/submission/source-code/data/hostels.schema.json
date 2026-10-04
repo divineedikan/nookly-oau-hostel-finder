@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "source",
+      "date_collected",
+      "verified_status"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "area": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "latitude": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "longitude": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "date_collected": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "verified_status": {
+        "enum": [
+          "verified_on_site",
+          "verified_by_contact",
+          "from_osm",
+          "from_google_search",
+          "unverified",
+          "partially_verified"
+        ]
+      }
+    }
+  }
+}

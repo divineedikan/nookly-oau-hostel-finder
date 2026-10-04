@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nookly helps OAU students compare off-campus accommodation with sourced information.">
+  <title>Nookly | Student housing around OAU</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://tile.openstreetmap.org">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body class="view-home mobile-home">
+  <header class="site-header">
+    <div class="header-inner">
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a class="brand-lockup" href="#home"><span class="logo-mark" aria-hidden="true">N</span><span class="brand-name">Nookly</span></a>
+        <div class="nav-links"><a href="#home">Home</a><a href="#finder">Explore hostels</a><a href="#map">Map</a><a href="#planner">Planner</a></div>
+      </nav>
+      <div class="hero-grid" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Student housing around OAU</p>
+          <h1>Find your next place with less guesswork.</h1>
+          <p class="lede">Find student accommodation around OAU, compare your options, and plan your journey to campus.</p>
+          <div class="hero-actions"><a class="hero-button primary" href="#finder"><i data-lucide="search" aria-hidden="true"></i>Explore hostels</a><a class="hero-button secondary" href="#map"><i data-lucide="map" aria-hidden="true"></i>Open the map</a></div>
+          <p class="notice" id="data-status"><strong>Verified directory:</strong> hostel details are marked verified as of 03/10/2026; rental details are shown only when available.</p>
+        </div>
+        <div class="hero-panel" aria-label="Nookly overview"><div class="hero-panel-top"><span class="eyebrow">OAU / Ile-Ife</span><i data-lucide="navigation" aria-hidden="true"></i></div>
+          <p class="hero-panel-title">A clearer starting point for your search.</p>
+          <div class="stat-grid"><div><strong id="mapped-count">0</strong><span>named places</span></div><div><strong id="area-count">0</strong><span>areas</span></div><div><strong id="source-count">0</strong><span>sourced</span></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-tools" aria-labelledby="quick-tools-heading">
+      <div class="section-heading"><div><p class="eyebrow">Quick access</p><h2 id="quick-tools-heading">Plan your search</h2></div><span class="section-kicker">Find your place</span></div>
+      <div class="quick-grid"><a class="quick-card" href="#finder"><span class="quick-icon"><i data-lucide="search" aria-hidden="true"></i></span><span><strong>Search by area</strong><small>Find leads near Maintenance, Moremi Estate, Damico and more.</small></span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a class="quick-card" href="#planner"><span class="quick-icon"><i data-lucide="sliders-horizontal" aria-hidden="true"></i></span><span><strong>Compare context</strong><small>Filter by location type, price, water and room fields.</small></span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a class="quick-card" href="#map"><span class="quick-icon"><i data-lucide="route" aria-hidden="true"></i></span><span><strong>Check the route</strong><small>Highlight a place, estimate the journey and open directions.</small></span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+    </section>
+    <section class="workspace" id="finder" aria-label="Hostel finder">
+      <aside class="filters-panel" aria-labelledby="filters-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Search <i data-lucide="sliders-horizontal" aria-hidden="true"></i></p>
+            <h2 id="filters-heading">Narrow the list</h2>
+          </div>
+          <button class="text-button" id="clear-filters" type="button">Clear</button>
+        </div>
+        <label for="search">Name or area</label>
+        <input id="search" type="search" placeholder="e.g. Aranyin" autocomplete="off">
+        <div class="two-column">
+          <div><label for="min-price">Min price (NGN)</label><input id="min-price" type="number" min="0" step="5000" inputmode="numeric"></div>
+          <div><label for="max-price">Max price (NGN)</label><input id="max-price" type="number" min="0" step="5000" inputmode="numeric"></div>
+        </div>
+        <p id="filter-feedback" role="status"></p>
+        <p id="filter-availability" class="source-note"></p>
+        <label for="area">Area</label>
+        <select id="area"><option value="">All areas</option></select>
+        <label for="room-type">Room type</label>
+        <select id="room-type"><option value="">All room types</option></select>
+        <label for="campus-status">Location type</label>
+        <select id="campus-status"><option value="">All locations</option><option value="on_campus">On campus</option><option value="off_campus">Off campus</option></select>
+        <label for="listing-status">Listing status</label>
+        <select id="listing-status"><option value="">All statuses</option><option value="lead">Availability not stated</option><option value="available">Available</option><option value="available_on_ballot">Available on ballot</option><option value="unavailable">Unavailable</option></select>
+        <label for="max-distance">Distance to reference (approx.): <output id="distance-value">Any</output></label>
+        <input id="max-distance" type="range" min="0" max="10" step="0.5" value="10">
+        <label class="check-row"><input id="water" type="checkbox"> Water available</label>
+        <label class="check-row"><input type="checkbox" id="saved-only"> Saved hostels only</label><label for="sort">Sort by</label>
+        <select id="sort"><option value="price">Price: low to high</option><option value="distance">Distance: nearest first</option></select>
+        <button type="button" class="mobile-apply" data-mobile-view="hostels">Show matching hostels</button>
+      </aside>
+
+      <section class="results-panel" aria-labelledby="results-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">Live results <i data-lucide="list-filter" aria-hidden="true"></i></p><h2 id="results-heading"><span id="result-count">0</span> hostels</h2></div>
+          <button class="view-toggle" id="focus-map" type="button"><i data-lucide="map" aria-hidden="true"></i>Focus map</button>
+        </div>
+        <div id="empty-state" class="empty-state" hidden>
+          <h3>No hostels match.</h3>
+          <p>Try clearing your filters or widening the price and distance ranges. Some listing details are not available yet.</p>
+        </div>
+        <div id="listing-list" class="listing-list" aria-live="polite"></div>
+      </section>
+
+      <section class="map-panel" aria-label="Map of OAU hostels">
+        <div class="map-toolbar"><div><strong>Explore around OAU</strong><span>Ile-Ife, Osun State</span></div><button id="reset-map" type="button" aria-label="Show all matching hostels on the map"><i data-lucide="scan" aria-hidden="true"></i>Reset view</button></div><div class="map-search"><label for="map-search">Find a hostel on the map</label><input id="map-search" type="search" placeholder="Search hostel or area" autocomplete="off"><span id="map-match-count" role="status"></span></div><div id="map" role="application" aria-label="Interactive map showing hostel listings"></div><p id="tile-status" class="tile-status" role="status" hidden>The street map is temporarily unavailable. <button id="retry-tiles" type="button">Retry map</button></p><p id="route-status" class="route-status" role="status">Loading road routes to campus reference points.</p><div class="map-options"><label><input id="show-routes" type="checkbox"> Show all routes</label><button id="close-route" type="button">Clear selected route</button></div><div id="journey-panel" class="journey-panel" aria-live="polite" hidden></div><div class="map-legend"><span class="legend-hostel"></span>Hostels <span class="legend-gate"></span>Main gate <span class="legend-library"></span>Library</div>
+      </section>
+    </section>
+    <section id="planner" class="planner" aria-label="Housing planner">
+      <h2>Your housing planner</h2><p id="planner-status" role="status"></p>
+      <div id="comparison-table" class="comparison-table"></div>
+      <div class="planner-grid">
+        <form id="budget-form"><h3>Total-cost calculator</h3><p>Use amounts for the same period. Transport fare is the daily return cost.</p>
+          <label for="budget-rent">Rent (NGN)</label><input id="budget-rent" type="number" min="0" value="0">
+          <label for="budget-fees">All additional fees (NGN)</label><input id="budget-fees" type="number" min="0" value="0">
+          <label for="budget-fare">Daily return transport (NGN)</label><input id="budget-fare" type="number" min="0" value="0">
+          <label for="budget-days">Travel days in your budget period</label><input id="budget-days" type="number" min="0" step="1" value="0">
+          <output id="budget-total" aria-live="polite">Estimated total: NGN 0</output>
+        </form>
+        <form id="report-form"><h3>Report incorrect details</h3><p>Send a correction straight to the project team.</p>
+          <label for="report-hostel">Hostel</label><select id="report-hostel"></select>
+          <label for="report-text">What needs correcting?</label><textarea id="report-text" rows="5" maxlength="2000" required></textarea>
+          <p id="report-status" role="status"></p><button type="submit">Send report</button>
+        </form>
+      </div>
+    </section>
+    <section class="how-section" id="how-it-works" aria-labelledby="how-heading"><div><p class="eyebrow">How Nookly works</p><h2 id="how-heading">A useful first look, with the uncertainty visible.</h2></div><div class="how-steps"><div><span>01</span><strong>Browse</strong><p>Start with named places and the areas students search most.</p></div><div><span>02</span><strong>Compare</strong><p>Use distance, room, facility and location filters where data exists.</p></div><div><span>03</span><strong>Navigate</strong><p>Select a hostel to highlight its route to the Library (on campus) or Main Gate (off campus).</p></div></div></section>
+  </main>
+
+  <nav class="mobile-navigation" aria-label="Main views"><button type="button" data-mobile-view="home" aria-pressed="true"><i data-lucide="home" aria-hidden="true"></i>Home</button>
+    <button type="button" data-mobile-view="map" aria-pressed="false"><i data-lucide="map" aria-hidden="true"></i>Map</button>
+    <button type="button" data-mobile-view="hostels" aria-pressed="false"><i data-lucide="building" aria-hidden="true"></i>Hostels <span id="mobile-result-count">0</span></button>
+    <button type="button" data-mobile-view="filters" aria-pressed="false"><i data-lucide="sliders-horizontal" aria-hidden="true"></i>Filters</button>
+    <button type="button" data-mobile-view="planner" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i>Planner</button>
+  </nav>
+  <footer><div><a class="footer-brand" href="#home"><span class="logo-mark" aria-hidden="true">N</span><strong>Nookly</strong></a><p>Student housing discovery around OAU.</p></div><div class="footer-note"><p>Location data is sourced and labelled; unknown rental details remain unknown.</p></div></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
