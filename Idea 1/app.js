@@ -415,7 +415,7 @@ function updateComparison() {
 }
 function budgetTotal(rent, fees, fare, days) { return rent + fees + fare * days; }
 function initializePlanner() {
-  $('report-hostel').innerHTML = visibleHostels().map(h=>`<option value="${escapeHtml(h.id)}">${escapeHtml(h.name)}</option>`).join('');
+  $('report-hostel').innerHTML = '<option value="">Choose a hostel</option>' + visibleHostels().map(h=>`<option value="${escapeHtml(h.id)}">${escapeHtml(h.name)}</option>`).join('');
   updateComparison();
 }
 $('saved-only').addEventListener('input', render);
@@ -427,24 +427,32 @@ $('budget-form').addEventListener('submit', event=>event.preventDefault());
 $('report-form').addEventListener('submit', async event => {
   event.preventDefault();
   const description = $('report-text').value.trim();
-  if (!description) { $('planner-status').textContent = 'Describe the incorrect information first.'; return; }
-  const hostel = state.hostels.find(h => h.id === $('report-hostel').value);
-  if (!hostel) { $('report-status').textContent = 'Choose a hostel first.'; return; }
-  const report = {hostel_id:hostel.id, hostel_name:hostel.name, description, created_at:new Date().toISOString()};
-  const reports = readStored('nookly-reports', []);
-  reports.push(report);
-  persist('nookly-reports', reports);
+  if (!description) { $('report-status').textContent = 'Describe the incorrect information first.'; $('report-text').focus(); return; }
+  const selectedHostelId = $('report-hostel').value.trim();
+  const hostel = state.hostels.find(h => h.id === selectedHostelId);
+  if (!hostel) { $('report-status').textContent = 'Choose the hostel you are reporting first.'; $('report-hostel').focus(); return; }
+  const report = {
+    _subject: `Nookly correction: ${hostel.name}`,
+    hostel_id: hostel.id,
+    hostel_name: hostel.name,
+    correction: description,
+    submitted_at: new Date().toISOString()
+  };
   if (!state.reportEndpoint) { $('report-status').textContent = 'Report delivery is not connected yet.'; return; }
   $('report-status').textContent = 'Sending report to the project team...';
   try {
     const response = await fetch(state.reportEndpoint, {
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(report)
+      body:JSON.stringify(Object.fromEntries(Object.entries(report).filter(([, value]) => String(value || '').trim())))
     });
     if (!response.ok) throw new Error('Report delivery failed');
+    const reports = readStored('nookly-reports', []);
+    reports.push(report);
+    persist('nookly-reports', reports);
     $('report-status').textContent = 'Report sent to the project team.';
     $('report-text').value = '';
+    $('report-hostel').value = '';
   } catch(error) {
     $('report-status').textContent = 'Could not send report. Please try again.';
   }
