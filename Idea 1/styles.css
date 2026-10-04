@@ -89,11 +89,11 @@ input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible
 .card-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
 .card-actions a, .card-actions button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem .7rem; border: 1px solid var(--evergreen); color: var(--evergreen-dark); background: transparent; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
 .card-actions a:hover, .card-actions button:hover { background: #e7f1d2; }
-.map-panel { position: relative; min-height: 420px; padding: 0; overflow: hidden; }
-#map { height: 100%; min-height: 420px; }
 .nookly-marker { display: grid; place-items: center; background: transparent; }
-.nookly-marker span { display: block; width: 15px; height: 15px; border: 3px solid #fffdf7; border-radius: 50%; background: var(--coral); box-shadow: 0 2px 8px rgba(8,47,39,.35); }
-.nookly-marker.is-selected span { width: 22px; height: 22px; border-color: var(--lime); background: var(--evergreen); box-shadow: 0 0 0 5px rgba(217,242,108,.36), 0 3px 12px rgba(8,47,39,.45); }
+.nookly-marker span { display: block; width: 16px; height: 16px; border: 2px solid #fffdf7; border-radius: 50% 50% 50% 0; background: var(--coral); box-shadow: 0 2px 8px rgba(8,47,39,.35); transform: rotate(-45deg); position: relative; }
+.nookly-marker span::after { content: ""; position: absolute; width: 5px; height: 5px; left: 4px; top: 4px; border-radius: 50%; background: #fffdf7; }
+.nookly-marker.is-selected span { width: 18px; height: 18px; border-color: var(--lime); background: var(--evergreen); box-shadow: 0 0 0 4px rgba(217,242,108,.32), 0 3px 10px rgba(8,47,39,.42); }
+.nookly-marker.is-selected span::after { left: 5px; top: 5px; }
 .nookly-reference-marker { display: grid; place-items: center; background: transparent; }
 .nookly-reference-marker span { display: grid; place-items: center; width: 28px; height: 28px; border: 2px solid #fffdf7; border-radius: 50% 50% 50% 0; background: var(--evergreen-dark); box-shadow: 0 0 0 2px rgba(243,200,91,.7), 0 2px 7px rgba(8,47,39,.32); transform: rotate(-45deg); }
 .nookly-reference-marker i { color: var(--lime); font: 700 .72rem Georgia, serif; font-style: normal; transform: rotate(45deg); }
@@ -118,8 +118,6 @@ footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem
   .site-header { padding: 4rem 1rem 3rem; }
   .workspace { grid-template-columns: 270px minmax(270px, 1fr) minmax(360px, 1.35fr); align-items: start; }
   .filters-panel { position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto; }
-  .map-panel { position: sticky; top: 1rem; height: calc(100vh - 2rem); }
-  #map { min-height: calc(100vh - 2rem); }
 }
 @media (max-width: 1049px) {
   .top-nav { padding-bottom: 2.5rem; }
@@ -177,7 +175,6 @@ button:disabled, input:disabled, select:disabled { opacity: .6; cursor: not-allo
 .listing-list { gap: 1rem; }
 .quick-card { border-radius: 12px; box-shadow: none; }
 .hero-panel { border-radius: 16px; }
-@media (max-width: 1049px) { .map-panel { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
 
 /* Map layout shell: restored stacked card layout. */
@@ -347,12 +344,5 @@ button:disabled, input:disabled, select:disabled { opacity: .6; cursor: not-allo
   .mobile-navigation svg { width:20px; height:20px; }
   #mobile-result-count { display:none; }
   .mobile-apply { display:block; width:100%; margin-top:16px; padding:12px; background:var(--evergreen); color:white; border:0; font-weight:700; }
-  .map-toolbar { gap:10px; padding:10px 12px; }
-  .map-toolbar strong { font-size:.85rem; }
-  .map-toolbar button { padding-inline:10px; }
-  .map-options { padding:6px 10px; }
-  .journey-panel { max-height:155px; }
-  .map-legend { padding:6px 12px; }
-  .route-status { font-size:.65rem; padding:5px 12px; }
   footer { margin-top:12px; }
 }

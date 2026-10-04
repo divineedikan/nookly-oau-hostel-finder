@@ -46,7 +46,7 @@
           <div>
             <p class="eyebrow">Search <i data-lucide="search" aria-hidden="true"></i></p>
             <h2 id="filters-heading">Search hostels</h2>
-            <small class="panel-help">Use one or two filters first. Clear resets the list.</small>
+            <small class="panel-help">Type a name or price first. Open more search options only if you want to narrow the list further.</small>
           </div>
           <button class="text-button" id="clear-filters" type="button">Clear</button>
         </div>
@@ -59,17 +59,18 @@
         <p id="filter-feedback" role="status"></p>
         <p id="filter-availability" class="source-note"></p>
         <label for="area">Area</label>
-        <select id="area"><option value="">All areas</option></select>
+        <select id="area"><option value="">Choose area</option></select>
         <label for="room-type">Room type</label>
-        <select id="room-type"><option value="">All room types</option></select>
+        <select id="room-type"><option value="">Choose room type</option></select>
         <label for="campus-status">Location type</label>
-        <select id="campus-status"><option value="">All locations</option><option value="on_campus">On campus</option><option value="off_campus">Off campus</option></select>
+        <select id="campus-status"><option value="">Choose location type</option><option value="on_campus">On campus</option><option value="off_campus">Off campus</option></select>
         <label for="listing-status">Listing status</label>
-        <select id="listing-status"><option value="">All statuses</option><option value="lead">Availability not stated</option><option value="available">Available</option><option value="available_on_ballot">Available on ballot</option><option value="unavailable">Unavailable</option></select>
+        <select id="listing-status"><option value="">Choose listing status</option><option value="lead">Availability not stated</option><option value="available">Available</option><option value="available_on_ballot">Available on ballot</option><option value="unavailable">Unavailable</option></select>
         <label for="max-distance">Maximum distance to campus point: <output id="distance-value">Any</output></label>
         <input id="max-distance" type="range" min="0" max="10" step="0.5" value="10">
         <label class="check-row"><input id="water" type="checkbox"> Water available</label>
-        <label class="check-row"><input type="checkbox" id="saved-only"> Saved hostels only</label><label for="sort">Sort by</label>
+        <label class="check-row"><input type="checkbox" id="saved-only"> Saved hostels only</label>
+        <label for="sort">Sort by</label>
         <select id="sort"><option value="price">Price: low to high</option><option value="distance">Distance: nearest first</option></select>
         <button type="button" class="mobile-apply" data-mobile-view="hostels">Show search results</button>
       </aside>
