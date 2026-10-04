@@ -1,0 +1,24 @@
+[
+  {
+    "id": "demo-example-1",
+    "name": "DEMO ONLY - Replace with survey data",
+    "area": "Demo area",
+    "address_description": "This record is not a real hostel.",
+    "latitude": null,
+    "longitude": null,
+    "price_per_year_ngn": 0,
+    "room_type": "demo",
+    "rooms_available": null,
+    "water": null,
+    "power_hours_estimate": null,
+    "fence_or_gate": null,
+    "security_guard": null,
+    "distance_to_gate_km": null,
+    "landlord_name": null,
+    "contact": null,
+    "source": "FAKE DEMO DATA - never merge into hostels.json",
+    "verified_status": "unverified",
+    "date_collected": null,
+    "notes": "Illustration only. Do not publish as a real listing."
+  }
+]
