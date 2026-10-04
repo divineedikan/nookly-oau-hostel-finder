@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+submission/
+pytest-cache-files-*/
+.pytest_cache/
+data/analysis/*.png
+data/analysis/*.csv
+data/analysis/*.txt
+data/.cache/
