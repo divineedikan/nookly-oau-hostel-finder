@@ -84,3 +84,14 @@ check("Off-campus range period", `priceText({campus_status:"off_campus",price_mi
 assert.ok(data.every(h => !h.availability_is_demo));
 
 check("Verification dates use day/month/year", `formatDate("2026-10-03")==="03/10/2026" && formatDate(null)==="Date not recorded"`);
+
+check('Empty and whitespace-only searches are blocked', `$('clear-filters').click(); $('search').value='   '; searchValidationError().id==='search'`);
+for (const id of ['area','room-type','campus-status','listing-status']) {
+ check('Accepts a selected '+id, `$('clear-filters').click(); $('${id}').disabled=false; $('${id}').value='selected'; searchValidationError()===null`);
+}
+check('Negative prices are blocked', `$('clear-filters').click(); $('min-price').value='-1'; searchValidationError().id==='min-price'`);
+check('Inverted prices block result navigation', `$('min-price').value='200'; $('max-price').value='100'; searchValidationError().id==='max-price'`);
+check('Disabled filters cannot submit an empty search', `$('clear-filters').click(); $('room-type').disabled=true; $('room-type').value='stale'; !hasSearchCriteria()`);
+check('Sort alone is not a search', `$('clear-filters').click(); $('sort').value='distance'; !hasSearchCriteria()`);
+check('Distance and checkbox filters work independently', `$('clear-filters').click(); $('max-distance').value='2'; hasSearchCriteria() && ($('clear-filters').click(), $('saved-only').checked=true, hasSearchCriteria())`);
+vm.runInContext("$('clear-filters').click()", context);

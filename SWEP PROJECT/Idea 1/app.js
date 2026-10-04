@@ -354,7 +354,35 @@ async function loadData() {
     setTimeout(startRoutes, 1500);
   } else loadRoadRoutes();
 }
-["search", "min-price", "max-price", "area", "room-type", "campus-status", "listing-status", "max-distance", "water", "sort"].forEach((id) => $(id).addEventListener("input", () => { $("distance-value").textContent = $("max-distance").value >= 10 ? "Any" : `${$("max-distance").value} km`; render(); }));
+function updateDistanceLabel() { $("distance-value").textContent = $("max-distance").value >= 10 ? "Any" : `${$("max-distance").value} km`; }
+function updateSearchResults() { updateDistanceLabel(); render(); }
+function hasSearchCriteria() {
+  return ["search", "min-price", "max-price", "area", "room-type", "campus-status", "listing-status"].some((id) => !$(id).disabled && $(id).value.trim() !== "")
+    || ($("max-distance").value !== "" && Number($("max-distance").value) < 10)
+    || (!$("water").disabled && $("water").checked)
+    || $("saved-only").checked;
+}
+function searchValidationError() {
+  for (const id of ["min-price", "max-price"]) {
+    const field = $(id);
+    if (field.validity?.badInput || (field.value !== "" && (!Number.isFinite(Number(field.value)) || Number(field.value) < 0))) {
+      return {id, message: "Enter a valid price of zero or more."};
+    }
+  }
+  if ($("min-price").value !== "" && $("max-price").value !== "" && Number($("min-price").value) > Number($("max-price").value)) {
+    return {id: "max-price", message: "Maximum price must be at least the minimum price."};
+  }
+  for (const id of ["area", "room-type", "campus-status", "listing-status"]) {
+    const field = $(id);
+    if (!field.disabled && field.value && field.options && !Array.from(field.options).some(option => option.value === field.value && !option.disabled)) {
+      return {id, message: "Choose a valid option from the dropdown."};
+    }
+  }
+  if (!hasSearchCriteria()) return {id: "search", message: "Enter a hostel name or price, choose an area, room type, location or listing status, or use a distance or checkbox filter."};
+  return null;
+}
+["search", "min-price", "max-price", "max-distance"].forEach((id) => $(id).addEventListener("input", updateSearchResults));
+["area", "room-type", "campus-status", "listing-status", "water", "saved-only", "sort"].forEach((id) => $(id).addEventListener("change", updateSearchResults));
 $("clear-filters").addEventListener("click", () => { ["search", "min-price", "max-price"].forEach((id) => $(id).value = ""); ["area", "room-type", "campus-status", "listing-status"].forEach((id) => $(id).value = ""); $("max-distance").value = 10; $("water").checked = false; $("distance-value").textContent = "Any"; $("map-search").value = ""; $("sort").value = "price"; $("saved-only").checked = false; render(); });
 $("focus-map").addEventListener("click", () => { setMobileView("map", false); $("map").scrollIntoView({ behavior: "smooth", block: "center" }); if (map) map.invalidateSize(); });
 $("reset-map").addEventListener("click", resetMapView);
@@ -491,7 +519,18 @@ function navigateHash() {
   const hash = window.location.hash;
   setMobileView(hash === '#finder' ? 'hostels' : hash === '#top' || hash === '#how-it-works' ? 'home' : ['#map','#planner','#filters'].includes(hash) ? hash.slice(1) : 'home', false);
 }
-document.querySelectorAll('[data-mobile-view]').forEach(button => button.addEventListener('click', () => setMobileView(button.dataset.mobileView)));
+document.querySelectorAll('[data-mobile-view]').forEach(button => button.addEventListener('click', () => {
+  if (button.classList.contains('mobile-apply')) {
+    const error = searchValidationError();
+    if (error) {
+      $('filter-feedback').textContent = error.message;
+      $(error.id).focus();
+      return;
+    }
+    $('filter-feedback').textContent = '';
+  }
+  setMobileView(button.dataset.mobileView);
+}));
 document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
   const target = link.getAttribute('href');
   const view = {'#home':'home','#top':'home','#finder':'hostels','#map':'map','#planner':'planner','#how-it-works':'home'}[target];
