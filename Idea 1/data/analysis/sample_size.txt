@@ -1,3 +1,7 @@
-Total records: 44
-Records with price: 0
-Records with price and distance: 0
+Total records: 48
+On campus: 11
+Off campus: 37
+Records with price: 23
+Records with per-session price (on campus): 10
+Records with yearly price (off campus): 13
+Records with yearly price and distance: 13
