@@ -83,8 +83,8 @@
         "evidence": "Single: NGN 300,000; double: NGN 600,000"
       }
     ],
-    "reference_name": "Hezekiah Oluwasanmi Library",
-    "distance_to_reference_km": 1.76,
+    "reference_name": "OAU Main Gate",
+    "distance_to_reference_km": 0.73,
     "price_display_note": "Single: NGN 300,000; double: NGN 600,000",
     "pricing_options": [
       {
@@ -95,7 +95,8 @@
         "label": "Double",
         "total_ngn": 600000
       }
-    ]
+    ],
+    "route_reference": "gate"
   },
   {
     "id": "osm-way-617970610",
@@ -839,8 +840,9 @@
         "evidence": "Confirmed by project owner as on campus"
       }
     ],
-    "reference_name": "Hezekiah Oluwasanmi Library",
-    "distance_to_reference_km": 1.62
+    "reference_name": "OAU Main Gate",
+    "distance_to_reference_km": 0.85,
+    "route_reference": "gate"
   },
   {
     "id": "google-location-lead-akintola-sports-hostel",
@@ -1942,8 +1944,9 @@
     "availability_confirmation_source": "Project owner confirmed availability in chat on 2026-10-04",
     "verification_method": "web_research",
     "verification_display_status": "Verified",
-    "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 2.77
+    "reference_name": "Hezekiah Oluwasanmi Library",
+    "distance_to_reference_km": 1.74,
+    "route_reference": "library"
   },
   {
     "id": "google-location-lead-kings-and-queens-hostel",

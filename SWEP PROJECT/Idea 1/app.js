@@ -117,9 +117,11 @@ function priceText(hostel) {
   }
   return hostel.price_per_year_ngn == null ? "Price on enquiry" : `NGN ${Number(hostel.price_per_year_ngn).toLocaleString()}${suffix}`;
 }
-function referencePoint(hostel) { return hostel.campus_status === 'on_campus' ? state.campusReference : state.gate; }
-function referenceName(hostel) { return hostel.campus_status === 'on_campus' ? 'Hezekiah Oluwasanmi Library' : 'OAU Main Gate'; }
-function referenceDistance(hostel) { return hostel.distance_to_reference_km ?? (hostel.campus_status === 'on_campus' ? null : hostel.distance_to_gate_km); }
+// route_reference ("gate" or "library") overrides the default: Library for on-campus hostels, Main Gate otherwise.
+function routesToLibrary(hostel) { return hostel.route_reference ? hostel.route_reference === 'library' : hostel.campus_status === 'on_campus'; }
+function referencePoint(hostel) { return routesToLibrary(hostel) ? state.campusReference : state.gate; }
+function referenceName(hostel) { return routesToLibrary(hostel) ? 'Hezekiah Oluwasanmi Library' : 'OAU Main Gate'; }
+function referenceDistance(hostel) { return hostel.distance_to_reference_km ?? (routesToLibrary(hostel) ? null : hostel.distance_to_gate_km); }
 function walkEstimate(hostel) {
   const route = roadRoutes.get(hostel.id);
   const km = route ? route.distance / 1000 : referenceDistance(hostel);

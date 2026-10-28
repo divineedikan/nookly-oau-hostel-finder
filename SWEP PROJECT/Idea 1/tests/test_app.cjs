@@ -77,6 +77,7 @@ check('Walk estimate uses direct-distance allowance', `walkEstimate({distance_to
 check('Walk estimate rejects unknown distances', `walkEstimate({})==='Walk estimate unavailable'`);
 check('Walk estimate uses loaded road distance', `roadRoutes.set('walk-test',{distance:4000,duration:600}); walkEstimate({id:'walk-test',distance_to_gate_km:2}).includes('60 min walk estimate')`);
 check('Route display reaches exact reference marker', `state.gate={latitude:7.52,longitude:4.53}; JSON.stringify(routeDisplayGeometry({campus_status:'off_campus'}, {geometry:{type:'LineString',coordinates:[[4.5,7.5],[4.52,7.51]]}}).coordinates.at(-1))==='[4.53,7.52]'`);
+check('Route reference overrides campus default', `referenceName({campus_status:'on_campus',route_reference:'gate'})==='OAU Main Gate' && referenceName({campus_status:'off_campus',route_reference:'library'})==='Hezekiah Oluwasanmi Library' && referenceName({campus_status:'on_campus'})==='Hezekiah Oluwasanmi Library'`);
 check('Cards have no Google Maps links', `!card({name:'Test',distance_to_gate_km:1}).includes('google.com')`);
 
 check("Campus rent period", `priceText({campus_status:"on_campus",price_per_year_ngn:50000}).endsWith(" / session")`);
