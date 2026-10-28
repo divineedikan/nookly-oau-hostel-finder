@@ -3,7 +3,7 @@
 
 Nookly is a SWEP student housing web app for finding and comparing hostels around Obafemi Awolowo University, Ile-Ife. It combines verified on-campus hostel information, researched off-campus hostel leads, map-based routes, filters, comparison tools, budget planning and correction reports.
 
-The current directory contains 48 hostel records. All published records display as verified, with the visible verification date shown as `27/10/2026`. On-campus hostel details are based on personal enquiries and official university context. Off-campus hostel details are based on web research, map leads and public listing/review information where available.
+The current directory contains 48 hostel records. All published records display as verified, with the visible verification date shown as `03/10/2026`. On-campus hostel details are based on personal enquiries and official university context. Off-campus hostel details are based on web research, map leads and public listing/review information where available.
 
 ## Problems Solved
 
