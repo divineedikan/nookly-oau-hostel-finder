@@ -219,15 +219,22 @@ function showConnection(hostel) {
   $("journey-panel").hidden = false;
   map.invalidateSize();
   $("journey-panel").innerHTML = `<strong>${escapeHtml(hostel.name)} to ${escapeHtml(referenceName(hostel))}</strong><p>${route ? `${(route.distance / 1000).toFixed(1)} km by road, ${Math.ceil(route.duration / 60)} min driving estimate, no traffic.` : "Road route not loaded yet."}</p><p>${walkEstimate(hostel)}</p>`;
-  requestAnimationFrame(() => {
-    if (state.selectedHostelId !== hostel.id) return;
-    map.invalidateSize();
-    if (state.connection) {
-      map.fitBounds(state.connection.getBounds(), {padding:[32,32], maxZoom:17, animate:true, duration:.6});
-    } else if (hasCoordinates(hostel)) {
-      map.setView([hostel.latitude,hostel.longitude], 16, {animate:true});
-    }
-  });
+  requestAnimationFrame(() => fitSelectedRoute(hostel));
+  // The map may still be appearing (mobile view switch), so fit again once it has its final size.
+  setTimeout(() => fitSelectedRoute(hostel), 350);
+}
+function fitSelectedRoute(hostel) {
+  if (!map || state.selectedHostelId !== hostel.id) return;
+  map.invalidateSize({pan:false});
+  const size = map.getSize();
+  if (!size.x || !size.y) return;
+  if (state.connection) {
+    const bounds = state.connection.getBounds();
+    if (hasCoordinates(hostel)) bounds.extend([hostel.latitude, hostel.longitude]);
+    map.fitBounds(bounds, {padding:[32,32], maxZoom:17, animate:false});
+  } else if (hasCoordinates(hostel)) {
+    map.setView([hostel.latitude,hostel.longitude], 16, {animate:false});
+  }
 }
 function focusMarker(id) {
   const marker = state.markers.get(id);
