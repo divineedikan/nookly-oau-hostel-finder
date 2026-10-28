@@ -29,7 +29,7 @@ check('Collection date is not verification', `!card({name:'Lead',date_collected:
 check('Keeps verified badge', `verifiedLabel({campus_status:'on_campus'})==='Verified' && verifiedLabel({campus_status:'off_campus'})==='Verified'`);
 check('No fabricated driving time', `roadEstimate({walk_minutes_estimate:20})==='Driving time pending route'`);
 check('Disables unavailable map actions', `card({name:'Lead'}).includes('disabled title="Map location unavailable"')`);
-check('Explains empty filters', `state.hostels=[{name:'Lead'}]; populateFilters(); $('room-type').disabled && $('water').disabled && $('filter-availability').textContent.includes('not been supplied')`);
+check('Explains empty filters', `state.hostels=[{name:'Lead'}]; populateFilters(); $('room-type').disabled && $('filter-availability').textContent.includes('not been supplied')`);
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/hostels.json'), 'utf8'));
 assert.ok(data.some(item => item.visible_on_site));
 assert.equal(data.filter(item => item.visible_on_site).length, data.filter(item => typeof item.name === 'string' && item.name.trim()).length);

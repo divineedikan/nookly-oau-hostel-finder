@@ -59,7 +59,6 @@ function formatDate(value) {
   return match ? `${match[3]}/${match[2]}/${match[1]}` : "Date not recorded";
 }
 function display(value, fallback = "Unverified") { return value === null || value === undefined || value === "" ? fallback : escapeHtml(value); }
-function hasWater(hostel) { return hostel.water === true || ["yes", "Yes", "true", "True"].includes(hostel.water); }
 function hasCoordinates(item) {
   return item != null && Number.isFinite(item.latitude) && Number.isFinite(item.longitude)
     && Math.abs(item.latitude) <= 90 && Math.abs(item.longitude) <= 180;
@@ -175,8 +174,7 @@ function matchesFilters(hostel) {
     && (!$('campus-status').value || hostel.campus_status === $('campus-status').value)
     && (!$('listing-status').value || hostel.listing_status === $('listing-status').value)
     && ((!min && max === Infinity) || (min <= max && (includeUnpricedOffCampus || (priceLow != null && priceHigh >= min && priceLow <= max))))
-    && (distance >= 10 || (referenceDistance(hostel) != null && referenceDistance(hostel) <= distance))
-    && (!$("water").checked || hasWater(hostel));
+    && (distance >= 10 || (referenceDistance(hostel) != null && referenceDistance(hostel) <= distance));
 }
 function sortedHostels() {
   const sortBy = $("sort").value;
@@ -288,8 +286,7 @@ function populateFilters() {
   values("area").forEach((value) => $("area").insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`));
   const noRooms = values("room_type").length === 0;
   $("room-type").disabled = noRooms;
-  $("water").disabled = !visibleHostels().some(hasWater);
-  $("filter-availability").textContent = [noRooms ? "Room types have not been supplied yet." : "", $("water").disabled ? "No listings currently report available water." : ""].filter(Boolean).join(" ");
+  $("filter-availability").textContent = noRooms ? "Room types have not been supplied yet." : "";
   values("room_type").forEach((value) => $("room-type").insertAdjacentHTML("beforeend", `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`));
 }
 function setupMap() {
@@ -369,7 +366,6 @@ function updateSearchResults() { updateDistanceLabel(); render(); }
 function hasSearchCriteria() {
   return ["search", "min-price", "max-price", "area", "room-type", "campus-status", "listing-status"].some((id) => !$(id).disabled && $(id).value.trim() !== "")
     || ($("max-distance").value !== "" && Number($("max-distance").value) < 10)
-    || (!$("water").disabled && $("water").checked)
     || $("saved-only").checked;
 }
 function searchValidationError() {
@@ -392,8 +388,8 @@ function searchValidationError() {
   return null;
 }
 ["search", "min-price", "max-price", "max-distance"].forEach((id) => $(id).addEventListener("input", updateSearchResults));
-["area", "room-type", "campus-status", "listing-status", "water", "saved-only", "sort"].forEach((id) => $(id).addEventListener("change", updateSearchResults));
-$("clear-filters").addEventListener("click", () => { ["search", "min-price", "max-price"].forEach((id) => $(id).value = ""); ["area", "room-type", "campus-status", "listing-status"].forEach((id) => $(id).value = ""); $("max-distance").value = 10; $("water").checked = false; $("distance-value").textContent = "Any"; $("map-search").value = ""; $("sort").value = "price"; $("saved-only").checked = false; render(); });
+["area", "room-type", "campus-status", "listing-status", "saved-only", "sort"].forEach((id) => $(id).addEventListener("change", updateSearchResults));
+$("clear-filters").addEventListener("click", () => { ["search", "min-price", "max-price"].forEach((id) => $(id).value = ""); ["area", "room-type", "campus-status", "listing-status"].forEach((id) => $(id).value = ""); $("max-distance").value = 10; $("distance-value").textContent = "Any"; $("map-search").value = ""; $("sort").value = "price"; $("saved-only").checked = false; render(); });
 $("focus-map").addEventListener("click", () => { setMobileView("map", false); $("map").scrollIntoView({ behavior: "smooth", block: "center" }); if (map) map.invalidateSize(); });
 $("reset-map").addEventListener("click", resetMapView);
 $("reset-map").disabled = !map;

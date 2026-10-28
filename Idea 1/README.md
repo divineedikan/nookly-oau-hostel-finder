@@ -9,7 +9,7 @@ The current directory contains 48 hostel records. All published records display 
 - Students can search named hostels instead of relying only on scattered word-of-mouth.
 - On-campus and off-campus options are shown in one place.
 - Rent period is clearer: on-campus rent is per session, off-campus rent is per year where supplied.
-- Users can filter by area, room type, location type, listing status, water and distance.
+- Users can filter by area, room type, location type, listing status and distance.
 - Users can compare up to three hostels.
 - The map highlights the road route from a hostel to the right reference point: Hezekiah Oluwasanmi Library for on-campus hostels, and OAU Main Gate for off-campus hostels.
 - Walking and driving estimates are displayed without claiming live Google Maps traffic.

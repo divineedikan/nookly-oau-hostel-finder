@@ -16,7 +16,7 @@
 
 1. Fetch and clean attributable OSM/survey data.
 2. Map and list with empty state.
-3. Filter by price, area, room type, water and distance.
+3. Filter by price, area, room type and distance.
 4. Show source, verification and last-verified date.
 5. Test with students and document limits.
 
