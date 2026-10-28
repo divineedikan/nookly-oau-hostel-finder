@@ -8,6 +8,8 @@
   --evergreen-dark: #082f27;
   --lime: #d9f26c;
   --coral: #ef7054;
+  --coral-text: #b8432a;
+  --coral-on-dark: #ffc4b5;
   --gold: #f3c85b;
   --shadow: 0 6px 24px rgba(8, 47, 39, .055);
   --text-body: .95rem;
@@ -45,7 +47,8 @@ body { margin: 0; background: var(--paper); font-size: var(--text-body); line-he
 .stat-grid strong, .stat-grid span { display: block; }
 .stat-grid strong { color: var(--lime); font: 700 1.7rem Georgia, serif; }
 .stat-grid span { color: #d9ebe0; font-size: var(--text-label); }
-.eyebrow { margin: 0 0 .35rem; color: var(--coral); font-size: var(--text-label); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 .35rem; color: var(--coral-text); font-size: var(--text-label); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.site-header .eyebrow { color: var(--coral-on-dark); }
 .eyebrow svg, .view-toggle svg { width: 14px; height: 14px; vertical-align: -2px; stroke-width: 2.4; }
 h1, h2, h3, p { margin-top: 0; }
 h2 { margin-bottom: .4rem; font-family: Georgia, serif; font-size: 1.5rem; letter-spacing: 0; }
@@ -106,7 +109,7 @@ input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible
 .how-section h2 { max-width: 380px; font-size: 2.2rem; font-weight: 500; }
 .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .how-steps div { border-top: 2px solid var(--evergreen); padding-top: .75rem; }
-.how-steps span { color: var(--coral); font: 700 var(--text-label) Arial, sans-serif; }
+.how-steps span { color: var(--coral-text); font: 700 var(--text-label) Arial, sans-serif; }
 .how-steps strong { display: block; margin: .5rem 0 .35rem; }
 .how-steps p { color: var(--muted); font-size: var(--text-small); line-height: 1.5; }
 footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem 0; color: var(--muted); font-size: var(--text-small); }

@@ -44,6 +44,12 @@
 .listing-details summary:focus-visible { outline:3px solid var(--gold); }
 .card-actions button,.card-actions a { min-height:44px; }
 #report-status { font-size:.82rem; color:var(--evergreen-dark); }
+.form-note { margin:.5rem 0 0; font-size:.78rem; }
+.legal { margin-top:.8rem; text-align:left; }
+.legal summary { min-height:44px; padding:12px 0; cursor:pointer; color:var(--evergreen); font-weight:600; }
+.legal summary:focus-visible { outline:3px solid var(--gold); }
+.legal p { margin:.4rem 0 .7rem; line-height:1.5; }
+footer a { color:var(--evergreen); }
 @media(max-width:1049px) {
  input,select,textarea { font-size:16px; }
  .listing-card { padding:16px; }

@@ -48,7 +48,7 @@
             <h2 id="filters-heading">Search hostels</h2>
             <small class="panel-help">Type a hostel name, enter a price range, or choose one dropdown to narrow the results.</small>
           </div>
-          <button class="text-button" id="clear-filters" type="button">Clear</button>
+          <button class="text-button" id="clear-filters" type="button">Clear filters</button>
         </div>
         <label for="search">Hostel name or area</label>
         <input id="search" type="search" placeholder="e.g. Angola, Moremi, Aranyin" autocomplete="off">
@@ -77,7 +77,7 @@
       <section class="results-panel" aria-labelledby="results-heading">
         <div class="section-heading">
           <div><p class="eyebrow">Search results <i data-lucide="list-filter" aria-hidden="true"></i></p><h2 id="results-heading"><span id="result-count">0</span> hostels</h2></div>
-          <button class="view-toggle" id="focus-map" type="button"><i data-lucide="map" aria-hidden="true"></i>Focus map</button>
+          <button class="view-toggle" id="focus-map" type="button"><i data-lucide="map" aria-hidden="true"></i>Show on map</button>
         </div>
         <div id="empty-state" class="empty-state" hidden>
           <h3>No hostels match.</h3>
@@ -109,6 +109,7 @@
         <form id="report-form" novalidate><h3>Report a wrong detail</h3><p>If a price, room detail, location, or facility is wrong, send the correction here.</p>
           <label for="report-hostel">Hostel to report</label><select id="report-hostel" required></select>
           <label for="report-text">Correction details</label><textarea id="report-text" rows="5" maxlength="2000" required placeholder="Example: The rent for Makarios Single Occupant Type B is NGN 170,000."></textarea>
+          <p class="form-note" id="report-note">Your report goes to the Nookly team through Formspree, a form delivery service. Don't include personal information such as your name or phone number.</p>
           <p id="report-status" role="status"></p><button type="submit">Send report</button>
         </form>
       </div>
@@ -122,7 +123,7 @@
     <button type="button" data-mobile-view="filters" aria-pressed="false"><i data-lucide="search" aria-hidden="true"></i>Search</button>
     <button type="button" data-mobile-view="planner" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i>Planner</button>
   </nav>
-  <footer><div><a class="footer-brand" href="#home"><span class="logo-mark" aria-hidden="true">N</span><strong>Nookly</strong></a><p>Student housing discovery around OAU.</p></div><div class="footer-note"><p>Location data is sourced and labelled; unknown rental details remain unknown.</p></div></footer>
+  <footer><div><a class="footer-brand" href="#home"><span class="logo-mark" aria-hidden="true">N</span><strong>Nookly</strong></a><p>Student housing discovery around OAU.</p><p>A SWEP 200 project by Group 25, Obafemi Awolowo University, Ile-Ife. Found a wrong detail? <a href="#planner">Report it in the Planner</a>.</p></div><div class="footer-note"><p>Location data is sourced and labelled; unknown rental details remain unknown.</p><details class="legal"><summary>Privacy and terms</summary><p><strong>What we collect.</strong> Nookly has no accounts, cookies, analytics or tracking. If you send a correction report, the hostel name, your message and the time are sent to the project team through Formspree.</p><p><strong>What stays on your device.</strong> Saved hostels and cached map routes are kept in your own browser storage so the site works faster. Clear your browser data to remove them.</p><p><strong>Other services.</strong> To show the map, routes and icons, your browser connects to OpenStreetMap, Esri, OSRM and unpkg.com, which receive standard request information such as your IP address.</p><p><strong>Using the listings.</strong> Hostel details are a guide, checked as of the date on each card. Prices, rooms and availability can change, and a listing is not a guarantee of safety or vacancy. Confirm details with the hostel before paying. Nookly does not take bookings or payments.</p></details></div></footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="app.js"></script>
