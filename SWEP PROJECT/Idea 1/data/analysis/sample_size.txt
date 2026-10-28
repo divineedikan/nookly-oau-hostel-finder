@@ -1,3 +1,0 @@
-Total records: 44
-Records with price: 0
-Records with price and distance: 0
