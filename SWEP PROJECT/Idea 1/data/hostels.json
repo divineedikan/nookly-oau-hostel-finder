@@ -7,7 +7,7 @@
     "latitude": 7.5040872,
     "longitude": 4.5214592,
     "price_per_year_ngn": null,
-    "room_type": null,
+    "room_type": "Single / Double",
     "rooms_available": null,
     "water": null,
     "power_hours_estimate": null,
@@ -29,10 +29,13 @@
       "google_maps_directions": "https://www.google.com/maps/dir/?api=1&destination=7.5040872,4.5214592",
       "openstreetmap": "https://www.openstreetmap.org/?mlat=7.5040872&mlon=4.5214592#map=18/7.5040872/4.5214592"
     },
-    "gender_policy": null,
-    "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "gender_policy": "Female and male",
+    "room_types": [
+      "Single",
+      "Double"
+    ],
+    "price_min_ngn": 300000,
+    "price_max_ngn": 600000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -67,10 +70,32 @@
           "area_group"
         ],
         "evidence": "Confirmed by project owner as on campus"
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "Single: NGN 300,000; double: NGN 600,000"
       }
     ],
     "reference_name": "Hezekiah Oluwasanmi Library",
-    "distance_to_reference_km": 1.76
+    "distance_to_reference_km": 1.76,
+    "price_display_note": "Single: NGN 300,000; double: NGN 600,000",
+    "pricing_options": [
+      {
+        "label": "Single",
+        "total_ngn": 300000
+      },
+      {
+        "label": "Double",
+        "total_ngn": 600000
+      }
+    ]
   },
   {
     "id": "osm-way-617970610",
@@ -932,10 +957,10 @@
       "google_maps_directions": "https://www.google.com/maps/dir/?api=1&destination=7.5014743,4.5155067",
       "openstreetmap": "https://www.openstreetmap.org/?mlat=7.5014743&mlon=4.5155067#map=18/7.5014743/4.5155067"
     },
-    "gender_policy": null,
+    "gender_policy": "Female and male",
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 120000,
+    "price_max_ngn": 150000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -963,7 +988,21 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.89
+    "distance_to_reference_km": 0.89,
+    "price_display_note": "NGN 120,000 to NGN 150,000",
+    "research_sources": [
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 120,000 to NGN 150,000"
+      }
+    ]
   },
   {
     "id": "google-location-lead-halsadam-hostel-damico",
@@ -995,8 +1034,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 500000,
+    "price_max_ngn": 750000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1028,13 +1067,25 @@
         "fields": [
           "power_hours_estimate"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 500,000 to NGN 750,000, depending on landlord agreement and agents' fees"
       }
     ],
     "rent_period": "year",
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 1.58
+    "distance_to_reference_km": 1.58,
+    "price_display_note": "NGN 500,000 to NGN 750,000, depending on landlord agreement and agents' fees"
   },
   {
     "id": "google-location-lead-stella-odeyemi-hostel",
@@ -1141,8 +1192,8 @@
     },
     "gender_policy": "predominantly female (area)",
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 250000,
+    "price_max_ngn": 500000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1170,7 +1221,31 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.19
+    "distance_to_reference_km": 0.19,
+    "price_display_note": "NGN 250,000 per bed; NGN 500,000 per room",
+    "pricing_options": [
+      {
+        "label": "Per bed",
+        "total_ngn": 250000
+      },
+      {
+        "label": "Per room",
+        "total_ngn": 500000
+      }
+    ],
+    "research_sources": [
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 250,000 per bed; NGN 500,000 per room"
+      }
+    ]
   },
   {
     "id": "google-location-lead-bver-hostel",
@@ -1367,7 +1442,7 @@
     "address_description": "12 Olubuse Street, Ile-Ife",
     "latitude": 7.4985449,
     "longitude": 4.5159482,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 450000,
     "room_type": null,
     "rooms_available": null,
     "water": null,
@@ -1390,8 +1465,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 450000,
+    "price_max_ngn": 450000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1423,6 +1498,17 @@
         "fields": [
           "address_description"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "Around NGN 450,000"
       }
     ],
     "availability_is_demo": false,
@@ -1431,7 +1517,8 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.74
+    "distance_to_reference_km": 0.74,
+    "price_display_note": "Around NGN 450,000"
   },
   {
     "id": "google-location-lead-nabeel-house-aserifa",
@@ -1503,7 +1590,7 @@
     "address_description": null,
     "latitude": 7.4876976,
     "longitude": 4.5229276,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 300000,
     "room_type": "Two-bedroom flats (reported)",
     "rooms_available": null,
     "water": null,
@@ -1528,8 +1615,8 @@
     "room_types": [
       "two-bedroom flat"
     ],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 300000,
+    "price_max_ngn": 300000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1564,6 +1651,17 @@
           "room_types",
           "facilities"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 300,000"
       }
     ],
     "availability_is_demo": false,
@@ -1572,7 +1670,8 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 1.1
+    "distance_to_reference_km": 1.1,
+    "price_display_note": "NGN 300,000"
   },
   {
     "id": "google-location-lead-julibay-hostel-moremi-estate",
@@ -1581,7 +1680,7 @@
     "address_description": "Phase 3, Moremi Estate, Ile-Ife",
     "latitude": 7.4882387,
     "longitude": 4.5221745,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 350000,
     "room_type": null,
     "rooms_available": null,
     "water": null,
@@ -1604,8 +1703,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 350000,
+    "price_max_ngn": 350000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1637,13 +1736,25 @@
         "fields": [
           "address_description"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "Around NGN 350,000"
       }
     ],
     "rent_period": "year",
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 1.04
+    "distance_to_reference_km": 1.04,
+    "price_display_note": "Around NGN 350,000"
   },
   {
     "id": "google-location-lead-korede-hostel",
@@ -1841,7 +1952,7 @@
     "address_description": null,
     "latitude": 7.4973139,
     "longitude": 4.5153059,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 250000,
     "room_type": null,
     "rooms_available": null,
     "water": "Available according to public reviews; confirm current supply",
@@ -1864,8 +1975,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 250000,
+    "price_max_ngn": 250000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -1898,6 +2009,17 @@
           "water",
           "power_hours_estimate"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 250,000"
       }
     ],
     "availability_is_demo": false,
@@ -1906,7 +2028,8 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.81
+    "distance_to_reference_km": 0.81,
+    "price_display_note": "NGN 250,000"
   },
   {
     "id": "google-location-lead-christianah-hostel",
@@ -1978,7 +2101,7 @@
     "address_description": null,
     "latitude": 7.4984413,
     "longitude": 4.514604,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 200000,
     "room_type": null,
     "rooms_available": null,
     "water": null,
@@ -2001,8 +2124,8 @@
     },
     "gender_policy": "Mixed (reported)",
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 200000,
+    "price_max_ngn": 200000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -2034,6 +2157,17 @@
         "fields": [
           "gender_policy"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 200,000"
       }
     ],
     "availability_is_demo": false,
@@ -2042,7 +2176,8 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.89
+    "distance_to_reference_km": 0.89,
+    "price_display_note": "NGN 200,000"
   },
   {
     "id": "google-location-lead-grinland-hostel",
@@ -2177,7 +2312,7 @@
     "address_description": "21 Ede Road, Ile-Ife",
     "latitude": 7.500026,
     "longitude": 4.514504,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 450000,
     "room_type": null,
     "rooms_available": null,
     "water": "Running water reported; current supply not confirmed",
@@ -2200,8 +2335,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 450000,
+    "price_max_ngn": 450000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -2236,13 +2371,25 @@
           "power_hours_estimate",
           "facilities"
         ]
+      },
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 450,000"
       }
     ],
     "rent_period": "year",
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.93
+    "distance_to_reference_km": 0.93,
+    "price_display_note": "NGN 450,000"
   },
   {
     "id": "google-location-lead-unifecs-hostel-ife",
@@ -2388,7 +2535,7 @@
     "address_description": null,
     "latitude": 7.4980907,
     "longitude": 4.5149917,
-    "price_per_year_ngn": null,
+    "price_per_year_ngn": 350000,
     "room_type": null,
     "rooms_available": null,
     "water": null,
@@ -2411,8 +2558,8 @@
     },
     "gender_policy": null,
     "room_types": [],
-    "price_min_ngn": null,
-    "price_max_ngn": null,
+    "price_min_ngn": 350000,
+    "price_max_ngn": 350000,
     "payment_terms": null,
     "caution_fee_ngn": null,
     "agent_fee_ngn": null,
@@ -2442,7 +2589,21 @@
     "verification_method": "web_research",
     "verification_display_status": "Verified",
     "reference_name": "OAU Main Gate",
-    "distance_to_reference_km": 0.84
+    "distance_to_reference_km": 0.84,
+    "price_display_note": "NGN 350,000",
+    "research_sources": [
+      {
+        "source": "Project owner price list supplied in chat",
+        "date": "2026-10-28",
+        "fields": [
+          "price_per_year_ngn",
+          "price_min_ngn",
+          "price_max_ngn",
+          "price_display_note"
+        ],
+        "evidence": "NGN 350,000"
+      }
+    ]
   },
   {
     "id": "google-location-lead-adedotun-adetayo-sijuade-hostel",

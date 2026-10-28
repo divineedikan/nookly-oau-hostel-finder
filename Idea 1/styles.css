@@ -338,7 +338,7 @@ button:disabled, input:disabled, select:disabled { opacity: .6; cursor: not-allo
   .mobile-hostels .results-panel { display:block; }
   .mobile-filters .filters-panel { display:block; padding:1.1rem; }
   .mobile-planner #planner { display:block; margin-top:8px; }
-  .mobile-navigation { position:fixed; z-index:1100; bottom:0; left:0; right:0; display:grid; grid-template-columns:repeat(4,1fr); padding:8px 8px calc(8px + env(safe-area-inset-bottom)); background:white; border-top:1px solid #dce3de; box-shadow:0 -3px 18px #1835270d; }
+  .mobile-navigation { position:fixed; z-index:1100; bottom:0; left:0; right:0; display:grid; grid-template-columns:repeat(5,1fr); padding:8px 8px calc(8px + env(safe-area-inset-bottom)); background:white; border-top:1px solid #dce3de; box-shadow:0 -3px 18px #1835270d; }
   .mobile-navigation button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-height:54px; border:0; border-radius:12px; background:transparent; color:#5e6c64; font-size:.72rem; }
   .mobile-navigation button[aria-pressed="true"] { background:#e5f1e9; color:#11624b; font-weight:700; }
   .mobile-navigation svg { width:20px; height:20px; }

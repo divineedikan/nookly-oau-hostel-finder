@@ -25,6 +25,15 @@ const baseTiles = map ? L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.
 
 let tileFailures = 0;
 let alternateTiles = false;
+let tilesLoaded = false;
+// Fall back to a different provider (keyless Esri street map) when OpenStreetMap tiles do not load.
+function useAlternateTiles() {
+  if (alternateTiles) return;
+  alternateTiles = true;
+  tileFailures = 0;
+  if (map.attributionControl) map.attributionControl.addAttribution('Tiles &copy; <a href="https://www.esri.com">Esri</a>');
+  baseTiles.setUrl('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}');
+}
 function retryMapTiles() {
   tileFailures = 0;
   $('tile-status').hidden = true;
@@ -35,13 +44,12 @@ if (baseTiles && baseTiles.on) {
   baseTiles.on('tileerror', () => {
     tileFailures++;
     if (tileFailures < 4) return;
-    if (!alternateTiles) {
-      alternateTiles = true;
-      tileFailures = 0;
-      baseTiles.setUrl('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-    } else $('tile-status').hidden = false;
+    if (!alternateTiles) useAlternateTiles();
+    else $('tile-status').hidden = false;
   });
-  baseTiles.on('tileload', () => { tileFailures = 0; $('tile-status').hidden = true; });
+  baseTiles.on('tileload', () => { tilesLoaded = true; tileFailures = 0; $('tile-status').hidden = true; });
+  // Slow networks can hang on a tile for ~20s before an error fires, so switch early if nothing has loaded.
+  setTimeout(() => { if (!tilesLoaded) useAlternateTiles(); }, 6000);
 }
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
