@@ -48,8 +48,8 @@ if (baseTiles && baseTiles.on) {
     else $('tile-status').hidden = false;
   });
   baseTiles.on('tileload', () => { tilesLoaded = true; tileFailures = 0; $('tile-status').hidden = true; });
-  // Slow networks can hang on a tile for ~20s before an error fires, so switch early if nothing has loaded.
-  setTimeout(() => { if (!tilesLoaded) useAlternateTiles(); }, 6000);
+  // Slow networks can hang on a tile for ~20s before an error fires, so switch early if tiles are still missing.
+  setTimeout(() => { if (!tilesLoaded || baseTiles.isLoading?.()) useAlternateTiles(); }, 6000);
 }
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
